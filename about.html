@@ -1,0 +1,210 @@
+<html>
+<head>
+  	<title>About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<style>
+		*{margin: 0px ;padding: 0px;box-sizing: border-box; font-family: Arial, Helvetica, sans-serif;}
+		.container{display: flex;flex-wrap: wrap; justify-content: space-between;}
+		.navLeft{color:#3399CC;font-size:25px;}
+		.navLeft:hover{color:#198754;}
+		.navLeft i{padding: 20px 10px 20px 20px}
+
+		.navCenter ul{display: flex;flex-wrap: wrap; justify-content:flex-end;list-style-type: none}
+		.navCenter ul li{display: flex;padding: 20px 25px;font-size: 22px;align-items: center;}
+		.navCenter ul li #link4{margin-right: 10px}
+		li #link1{color:#198754;border-bottom: 4px solid skyblue;padding-bottom: 10px}
+		li #link2:hover{color:#198754;border-bottom: 4px solid red;padding-bottom: 10px}
+		li #link3:hover{color:#198754;border-bottom: 4px solid lightgreen;padding-bottom: 10px}
+		li #link4:hover{color:#198754;border-bottom: 4px solid violet;padding-bottom: 10px}
+		.navCenter a{color:#666666;text-decoration: none;}
+
+		.navRight{display: none;}
+		.duck{background-image: url('img/hero.jpg');background-size:100% 50%;background-repeat: no-repeat;padding: 100px;background-attachment: fixed;}
+		.about{color:#009999;font-size: 25px;padding: 50px 10px 20px 10px;}
+		.container1{display: flex;flex-wrap: wrap;padding-bottom: 50px}
+		.container1Left{width: 41.5%;padding: 10px}
+		.container1Left img{width: 100%;}
+		.container1Right{width: 58.5%;padding:10px 20px;font-size: 15.4px;line-height: 28px;color: #999;word-spacing: 1px}
+		.container1Right a{color:#3399CC;text-decoration: none }
+
+		.container2{display: flex;padding: 10px;width: 100%;flex-wrap: wrap;padding-bottom: 100px}
+		.container2A{width:50%;padding-right: 15px;font-size: 15.5px;color: #999;line-height: 28px;}
+		.container2A h1{color:#009999;padding-bottom: 25px;}
+		.container2B{width:50%;padding-left: 15px;font-size: 15.5px;color: #999;line-height: 28px}
+		.container2B h1{color:#009999;padding-bottom: 25px;}
+
+		.container3{display: flex;padding: 10px;width: 100%;flex-wrap: wrap;line-height: 28px;color: #999; padding-bottom: 100px}
+		.container3A{width: 33%;padding-right: 20px}
+		.container3A i{font-size: 50px;background-color: white;border: 1px solid #009999;display: flex;justify-content: center;width: 150px;height: 150px;align-items: center;color:#009999;padding-bottom: 20px}
+		.container3A h1{font-size: 30px;padding: 40px 0px 20px;color:#009999 }
+		.container3B{width: 33%;}
+		.container3B i{font-size: 70px;background-color: white;border: 1px solid #009999;display: flex;justify-content: center;width: 150px;height: 150px;align-items: center;color:#009999;padding-bottom: 20px }
+		.container3B h1{font-size: 30px;padding: 40px 0px 20px;color:#009999 }
+		.container3B button{padding: 20px 40px;color: white;background-color: #009999;font-size: 17px;display: flex;align-items: center;margin: auto;border: none;border-radius: 3px}
+		.container3C{width: 33%;}
+		.container3C i{font-size: 50px;background-color: white;border: 1px solid #009999;display: flex;justify-content: center;width: 150px;height: 150px;align-items: center;color:#009999;padding-bottom: 20px }
+		.container3C h1{font-size: 30px;padding: 40px 0px 20px;color:#009999 }
+
+		.footerMain{width:100%;background-color:#EEEEEE;display: flex;flex-wrap: wrap;justify-content: center;}
+		.footer{width: 70%;display: flex;color: grey;flex-wrap: wrap;padding-top: 50px}
+		.footer1{width: 50%;}
+		.footer1 h3{color:#009999;padding-bottom: 20px}
+		.footer1 p{line-height:30px;font-size: 15px;padding: 0px 33px 0px 0px}
+		.footer2{width: 20%;}
+		.footer2 h3{color:#009999;padding-bottom: 20px;}
+		.footer2 ul{list-style-type: none;}
+		.footer2 ul li{line-height: 30px;}
+		.footer ul li:hover{color:#009999 }
+		.footer3{width: 30%;display: block;text-align: right;flex-wrap: wrap;}
+		.footer3 i{background-color: white;color: grey;margin-left: 5px;padding: 12px 15px}
+		.footer3 i:hover{background-color: #009999;color: white}
+		.footer3 .para1{padding-top: 50px;font-size: 15px}
+		.footer3 .para2{padding-top: 10px;font-size: 15px}
+		.footer3 .para1:hover{color:#009999;}
+		.footer3 .para2:hover{color:#009999;}
+
+		.base{font-size: 15px;display: flex;flex-wrap: wrap;width: 100%;justify-content: space-between;color:grey;padding-top: 50px;padding-bottom: 20px }
+
+
+
+		@media screen and (max-width:550px)
+		{
+		
+			.navCenter{display: none;}
+			.navRight{display: block;margin-top: 30px;margin-right: 20px}
+			.about{font-size: 20px}
+			.aboutLeft{width: 100%;}
+			.aboutLeft img{width: 100%;}
+			.aboutRight{width: 100%;}
+			.container1Left{width: 100%;}
+			.container1Right{width: 100%;}
+			.container2A{width:100%;padding-bottom: 50px}
+			.container2A h1{font-size:25px }
+			.container2B{width:100%;padding:0;}
+			.container2B h1{font-size:25px;}
+			.container3A{width: 100%;padding-bottom: 100px;}
+			.container3B{width: 100%;padding-bottom: 100px}
+			.container3C{width: 100%}
+
+			.footer{width:85%;}
+
+			.footer1{width:100%;}
+
+			.footer2{width:100%;padding-top: 50px}
+			.footer2 h3{ margin-left:0px;}
+			.footer2 ul{padding:0px;}
+
+			.footer3{width:100%; display: flex;justify-content: flex-end;padding-top: 50px}
+			.footer3 .para1{width:100%; display: flex;justify-content: flex-end;padding-top: 50px}
+			.footer3 .para2{width:100%; display: flex;justify-content: flex-end;padding-top: 10px}
+
+			.base{width: 100%}
+			.base .baseA{display: flex;justify-content: flex-start;width: 100%}
+			.base .baseB{display: flex;justify-content: flex-end;padding-top: 20px;width: 100%}
+
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div class="navLeft">
+		<i class="fa fa-film"></i>
+		<span>Catalog-Z<span>
+	</div>
+	<div class="navCenter">
+		<ul>
+			<li><a href="index.html" id="link1">Photos</a></li>
+			<li><a href="videos.html" id="link2">Videos</a></li>
+			<li><a href="about.html" id="link3">About</a></li>
+			<li><a href="contact.html" id="link4">Contact</a></li>
+		</ul>
+	</div>
+	<div class="navRight">
+		<a href="#"><i class="fa fa-bars" style="font-size: 20px;color: black"></i></a>
+	</div>
+</div>
+
+<div class="duck"></div>
+
+<div class="about d-flex">
+	<big>About Catalog-Z Website Template</big>
+</div>
+<div class="container1">
+	<div class="container1Left">
+		<img src="img/about.jpg">
+	</div>
+	<div class="container1Right">
+		<p class="aboutRight1">You may support TemplateMo website by making <a href="#">a small contribution</a> via PayPal. This will be helpful for us. We hope you like this Catalog-Z photo / video template for your website. We are making new templates regularly for you. Please come back and visit our <a href="#">TemplateMo</a> website again.</p><br>
+		<p class="aboutRight2">Credits go to Pexels and Unsplash for photos and video used in this template. Catalog-Z is free <a href="#">Bootstrap 5</a> Alpha 2 HTML Template designed for video and photo websites.</p><br>
+		<p class="aboutRight3">You are <strong>allowed</strong> to use this template for your commercial or non-commercial websites. You can integrate it with any kind of CMS website. You are <strong>NOT allowed</strong> to redistribute the downloadable template ZIP file on any template collection website. Please <a href="#">contact us</a> for more information. Thank you.</p>
+	</div>
+</div>
+<div class="container2">
+	<div class="container2A">
+		<h1>Left side of 2-Column content</h1>
+		<p>Pellentesque urna odio, scelerisque eu mauris vitae, vestibulum sodales neque. Ut augue justo, tincidunt nec aliquet ac, cursus vel augue. Suspendisse vel quam imperdiet, sodales tellus sed, ullamcorper lorem.</p><br>
+		<p>Suspendisse id consequat risus. Aliquam varius posuere nunc, nec imperdiet neque condimentum at. Aenean porta eleifend venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+	</div>
+	<div class="container2B">
+		<h1>Right-side Title goes here</h1>
+		<p>Pellentesque urna odio, scelerisque eu mauris vitae, vestibulum sodales neque. Ut augue justo, tincidunt nec aliquet ac, cursus vel augue. Suspendisse vel quam imperdiet, sodales tellus sed, ullamcorper lorem.</p><br>
+		<p>Suspendisse id consequat risus. Aliquam varius posuere nunc, nec imperdiet neque condimentum at. Aenean porta eleifend venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+	</div>
+</div>
+
+<div class="container3">
+	<div class="container3A">
+		<i class="fa fa-desktop"></i>
+		<h1>Three-column title one</h1>
+		<p>Integer tristique arcu scelerisque mauris posuere convallis. Fusce egestas ipsum sapien, hendrerit ultricies nisi viverra eget. Vestibulum in tortor eget elit rutrum interdum.</p><br>
+		<p>Cras auctor velit urna, et feugiat ex tincidunt ut. Sed viverra, elit at pulvinar tristique, sem quam vehicula dolor, sed scelerisque augue mauris non dolor.</p>
+	</div>
+	<div class="container3B">
+		<i class="fa fa-mobile"></i>
+		<h1>Title two of three-column</h1>
+		<p>Donec nec est tincidunt, rhoncus nulla sit amet, imperdiet augue. Phasellus sodales placerat ipsum ac auctor. Mauris molestie blandit turpis. Mauris ante tellus, feugiat nec metus non, bibendum semper velit.</p><br>
+		<button>Read More</button>
+	</div>
+	<div class="container3C">
+		<i class='fa fa-photo'></i>
+		<h1>Third Title goes here</h1>
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec nec est tincidunt, rhoncus nulla sit amet, imperdiet augue.</p><br>
+		<p>Phasellus sodales placerat ipsum ac auctor. Mauris molestie blandit turpis. Mauris ante tellus, feugiat nec metus non, bibendum semper velit.</p>
+	</div>
+</div>
+<div class="footerMain">
+	<div class="footer">
+		<div class="footer1">
+			<h3>About Catalog-Z</h3>
+			<p>Catalog-Z is free <a href="#" style="text-decoration: none;color: blue">Bootstrap</a> 5 Alpha 2 HTML Template for video and photo websites. You can freely use this TemplateMo layout for a front-end integration with any kind of CMS website.</p>
+		</div>
+		<div class="footer2">
+			<h3>Our Links</h3>
+			<ul>
+				<li>Advertise</li>
+				<li>Support</li>
+				<li>Our Company</li>
+				<li>Contact</li>
+			</ul>
+		</div>
+		<div class="footer3">
+			<i class="fa fa-facebook"></i>
+			<i class="fa fa-twitter"></i>
+			<i class="fa fa-instagram"></i>
+			<i class="fa fa-pinterest"></i>
+			<p class="para1">Terms of Use</p>
+			<p class="para2">Privacy Policy</p>
+		</div>
+		<div class="base">
+			<div class="baseA">Copyright 2020 Catalog-Z Company. All rights reserved.</div>
+			<div class="baseB">Designed by Vishal Malhotra</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

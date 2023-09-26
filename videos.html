@@ -1,0 +1,379 @@
+<html>
+<head>
+  	<title>Video</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+	<style>
+		*{margin: 0px ;padding: 0px;box-sizing: border-box; font-family: Arial, Helvetica, sans-serif;}
+		.container{display: flex;flex-wrap: wrap; justify-content: space-between;}
+		.navLeft{color:#3399CC;font-size:25px;}
+		.navLeft:hover{color:#198754;}
+		.navLeft i{padding: 20px 10px 20px 20px}
+
+		.navCenter ul{display: flex;flex-wrap: wrap; justify-content:flex-end;list-style-type: none}
+		.navCenter ul li{display: flex;padding: 20px 25px;font-size: 22px;align-items: center;}
+		.navCenter ul li #link4{margin-right: 10px}
+		li #link1{color:#198754;border-bottom: 4px solid skyblue;padding-bottom: 10px}
+		li #link2:hover{color:#198754;border-bottom: 4px solid red;padding-bottom: 10px}
+		li #link3:hover{color:#198754;border-bottom: 4px solid lightgreen;padding-bottom: 10px}
+		li #link4:hover{color:#198754;border-bottom: 4px solid violet;padding-bottom: 10px}
+		.navCenter a{color:#666666;text-decoration: none;}
+
+		.navRight{display: none;}
+
+		.video{position: relative;z-index: 0}
+		video{height: 400px;width: 100%;display: block;justify-content: center;object-fit: fill;z-index: 1}
+		#pause{color: grey;font-size: 20px;position: absolute;right:20px;bottom: 20;z-index:2;display: block;}
+		.search{position: absolute;z-index: 3;display: flex;justify-content: center;}
+		.search input{width: 450px;height:50px;border:1px solid white;font-size: 15px;padding-left: 10px;position: absolute;z-index:4 }
+		.search i{width: 20%;background-color: #009999;justify-content: center;align-items: center;display: flex;color: white;}
+		.search i:hover{background-color: green;transition: 2s}
+
+		.body{display: flex;flex-wrap: wrap;justify-content: space-between;padding:50px 10px;}
+		.bodyLeft{color: #009999;font-size: 30px;font-weight:600}
+		.bodyRight{color: #009999;font-size: 15px;font-weight: 500}
+		.bodyRight button {padding: 5px 15px;font-weight: 600}
+
+		.main{width: 100%;display: flex;flex-wrap: wrap;}
+		.box{width: 23.5%;margin-right: 10px;margin-left: 10px}
+		.boxInner1{width: 100%;height: 180px;position: relative;transition-duration: .3s;z-index: 1}
+		.boxInner1 img{width: 100%;height: 180px;position: absolute;z-index: 2;}
+		.back{position: absolute;background-color: black;width: 100%;height: 180px;opacity: 0;z-index: 3}
+		.border{position: absolute;width: 100%;height: 180px;display: flex;justify-content: center;align-items: center;font-size: 30px;z-index: 4;color: white;opacity: 0;background-color: transparent;}
+		.boxInner1:hover .border{transform: scale(.85,.75);opacity:.9;border: 3px solid white;transition-duration: .5s;}
+		.boxInner1:hover .back{transform: scale(1,1);opacity: .5;transition-duration: .3s}
+		.boxInner2{display: flex;justify-content: space-between;padding-top: 20px;padding-bottom: 40px}
+		.Inner2Data1{opacity: .5}
+		.Inner2Data2{opacity: .7}
+
+		.buttons{display: flex;flex-wrap: wrap;justify-content: space-between;padding: 100px 0px 80px}
+		.buttonsLeft button{width: 180px;height: 55px;background-color:#009999;margin-left: 10px;color: white;font-size: 20px;border: none;border-radius: 5px;opacity: .7}
+		.active{width: 60px;height: 55px;background-color:#009999;border-radius: 5px;color: white;font-size: 20px;border: none;margin-left: 10px}
+		.inactive{width: 60px;height: 55px;background-color:#EEEEEE;border-radius: 5px;color: grey;font-size: 20px;border: none;margin-left: 10px}
+		.inactive:hover{width: 60px;height: 55px;background-color:#009999;border-radius: 5px;color: white;font-size: 20px;border: none;margin-left: 10px}
+		.buttonsRight button{width: 180px;height: 55px;background-color:#009999;margin-right: 10px;color: white;font-size: 20px;border: none;border-radius: 5px;}
+		.buttonsRight button:hover{width: 180px;height: 55px;background-color:#015858;margin-right: 10px;color: white;font-size: 20px;border: none;border-radius: 5px;}
+
+		.footerMain{width:100%;background-color:#EEEEEE;display: flex;flex-wrap: wrap;justify-content: center;}
+		.footer{width: 70%;display: flex;color: grey;flex-wrap: wrap;padding-top: 50px}
+		.footer1{width: 50%;}
+		.footer1 h3{color:#009999;padding-bottom: 20px}
+		.footer1 p{line-height:30px;font-size: 15px;padding: 0px 33px 0px 0px}
+		.footer2{width: 20%;}
+		.footer2 h3{color:#009999;padding-bottom: 20px;}
+		.footer2 ul{list-style-type: none;}
+		.footer2 ul li{line-height: 30px;}
+		.footer ul li:hover{color:#009999 }
+		.footer3{width: 30%;display: block;text-align: right;flex-wrap: wrap;}
+		.footer3 i{background-color: white;color: grey;margin-left: 5px;padding: 12px 15px}
+		.footer3 i:hover{background-color: #009999;color: white}
+		.footer3 .para1{padding-top: 50px;font-size: 15px}
+		.footer3 .para2{padding-top: 10px;font-size: 15px}
+		.footer3 .para1:hover{color:#009999;}
+		.footer3 .para2:hover{color:#009999;}
+
+		.base{font-size: 15px;display: flex;flex-wrap: wrap;width: 100%;justify-content: space-between;color:grey;padding-top: 50px;padding-bottom: 20px }
+ 		
+	
+	@media screen and (max-width:600px)
+
+	{
+		.navCenter{display: none;}
+		.navRight{display: block;margin-top: 30px;margin-right: 20px}
+		.body{display: flex;flex-wrap: wrap;justify-content: space-around;padding:50px 10px;}
+			.bodyLeft{color: #009999;font-size: 30px;font-weight:600}
+			.bodyRight{color: #009999;font-size: 15px;font-weight: 500}
+			.bodyRight button {padding: 5px 15px;font-weight: 600}
+
+			.box{width: 80%;margin: auto;}
+			.boxInner1{width: 100%;height: 230px;position: relative;transition-duration: .3s;z-index: 1}
+			.boxInner1 img{width: 100%;height: 230px;position: absolute;z-index: 2;}
+			.back{position: absolute;background-color: black;width: 100%;height: 230px;opacity: 0;z-index: 3}
+			.border{position: absolute;width: 100%;height: 230px;display: flex;justify-content: center;align-items: center;font-size: 30px;z-index: 4;color: white;opacity: 0;background-color: transparent;}
+			.boxInner2{padding-top: 20px;padding-bottom: 40px}
+
+			.buttons{justify-content: center;}
+			.buttonsCenter{margin-top: 10px}
+			.buttonsRight{margin-top: 10px}
+
+
+			.footer{width:85%;}
+
+			.footer1{width:100%;}
+
+			.footer2{width:100%;padding-top: 50px}
+			.footer2 h3{ margin-left:0px;}
+			.footer2 ul{padding:0px;}
+
+			.footer3{width:100%; display: flex;justify-content: flex-end;padding-top: 50px}
+			.footer3 .para1{width:100%; display: flex;justify-content: flex-end;padding-top: 50px}
+			.footer3 .para2{width:100%; display: flex;justify-content: flex-end;padding-top: 10px}
+
+			.base{width: 100%}
+			.base .baseA{display: flex;justify-content: flex-start;width: 100%}
+			.base .baseB{display: flex;justify-content: flex-end;padding-top: 20px;width: 100%}
+	}
+</style>
+<body>
+<div class="container">
+	<div class="navLeft">
+		<i class="fa fa-film"></i>
+		<span>Catalog-Z<span>
+	</div>
+	<div class="navCenter">
+		<ul>
+			<li><a href="index.html" id="link1">Photos</a></li>
+			<li><a href="videos.html" id="link2">Videos</a></li>
+			<li><a href="about.html" id="link3">About</a></li>
+			<li><a href="contact.html" id="link4">Contact</a></li>
+		</ul>
+	</div>
+	<div class="navRight">
+		<a href="#"><i class="fa fa-bars" style="font-size: 20px;color: black"></i></a>
+	</div>
+</div>
+
+<div class=" video d-flex justify-content-center">
+	<video src="img/hero.mp4" autoplay="" controls=""></video>
+	<i class="fa fa-pause" id="pause"></i>
+	<div class="search">
+		<input type="text" placeholder="Search">
+		<i class="fa fa-search"></i>
+	</div>
+</div>
+
+<div class="body">
+	<div class="bodyLeft">Latest Photos</div>
+	<div class="bodyRight">Page&nbsp<button>1</button>&nbsp of 200</div>
+</div>
+<div class="main">
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/1.jpg"/>
+			<div class="back"></div>
+			<div class="border">CLOCKS</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">18 Oct 2020</span>
+			<span class="Inner2Data2">9,906 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/2.jpg">
+			<div class="back"></div>
+			<div class="border">PLANTS</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">14 Oct 2020</span>
+			<span class="Inner2Data2">16,100 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/3.jpg">
+			<div class="back"></div>
+			<div class="border">MORNING</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">12 Oct 2020</span>
+			<span class="Inner2Data2">12,460 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/4.jpg">
+			<div class="back"></div>
+			<div class="border">PINKY</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">10 Oct 2020</span>
+			<span class="Inner2Data2">11,402 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/5.jpg">
+			<div class="back"></div>
+			<div class="border">HANGERS</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">24 Sep 2020</span>
+			<span class="Inner2Data2">16,008 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/6.jpg">
+			<div class="back"></div>
+			<div class="border">PERFUMES</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">20 Sep 2020</span>
+			<span class="Inner2Data2">12,860 views
+			</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/7.jpg">
+			<div class="back"></div>
+			<div class="border">BUS</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">18 Oct 2020</span>
+			<span class="Inner2Data2">9,906 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/8.jpg">
+			<div class="back"></div>
+			<div class="border">NEW YORK</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">12 Sep 2020</span>
+			<span class="Inner2Data2">11,300 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/9.jpg">
+			<div class="back"></div>
+			<div class="border">ABSTRACT</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">10 Sep 2020</span>
+			<span class="Inner2Data2">42,700 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/10.jpg">
+			<div class="back"></div>
+			<div class="border">FLOWERS</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">8 Sep 2020</span>
+			<span class="Inner2Data2">11,402 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/11.jpg">
+			<div class="back"></div>
+			<div class="border">ROSY</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">4 Sep 2020</span>
+			<span class="Inner2Data2">32,906 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/12.jpg">
+			<div class="back"></div>
+			<div class="border">ROCKI</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">28 Aug 2020</span>
+			<span class="Inner2Data2">50,700 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/13.jpg">
+			<div class="back"></div>
+			<div class="border">PURPLE</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">22 Aug 2020</span>
+			<span class="Inner2Data2">107,510 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/14.jpg">
+			<div class="back"></div>
+			<div class="border">SEA</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">14 Aug 2020</span>
+			<span class="Inner2Data2">118,006 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/15.jpg">
+			<div class="back"></div>
+			<div class="border">TURTLE</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">9 Aug 2020</span>
+			<span class="Inner2Data2">121,300 views</span>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boxInner1">
+			<img src="img/16.jpg">
+			<div class="back"></div>
+			<div class="border">PEACE</div>
+		</div>
+		<div class="boxInner2">
+			<span class="Inner2Data1">3 Aug 2020</span>
+			<span class="Inner2Data2">21,204 views</span>
+		</div>
+	</div>
+</div>
+
+
+	
+<div class="buttons">
+	<div class="buttonsLeft">
+		<button>Previous</button>
+	</div>
+	<div class="buttonsCenter">
+		<button class="active">1</button>
+		<button class="inactive">2</button>
+		<button class="inactive">3</button>
+		<button class="inactive">4</button>
+	</div>
+	<div class="buttonsRight">
+		<button>Next Page</button>
+	</div>
+</div>
+<div class="footerMain">
+	<div class="footer">
+		<div class="footer1">
+			<h3>About Catalog-Z</h3>
+			<p>Catalog-Z is free <a href="#" style="text-decoration: none;color: blue">Bootstrap</a> 5 Alpha 2 HTML Template for video and photo websites. You can freely use this TemplateMo layout for a front-end integration with any kind of CMS website.</p>
+		</div>
+		<div class="footer2">
+			<h3>Our Links</h3>
+			<ul>
+				<li>Advertise</li>
+				<li>Support</li>
+				<li>Our Company</li>
+				<li>Contact</li>
+			</ul>
+		</div>
+		<div class="footer3">
+			<i class="fa fa-facebook"></i>
+			<i class="fa fa-twitter"></i>
+			<i class="fa fa-instagram"></i>
+			<i class="fa fa-pinterest"></i>
+			<p class="para1">Terms of Use</p>
+			<p class="para2">Privacy Policy</p>
+		</div>
+		<div class="base">
+			<div class="baseA">Copyright 2020 Catalog-Z Company. All rights reserved.</div>
+			<div class="baseB">Designed by Vishal Malhotra</div>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>
